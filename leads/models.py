@@ -24,11 +24,11 @@ class Lead(models.Model):
     agent = models.ForeignKey("Agent",on_delete = models.SET_NULL, null=True, related_name="leads")
 
     @property
-    def full_name(self):
+    def fullname(self):
         return f"{self.first_name} {self.last_name}"
     
     def __str__(self):
-        return str(self.full_name)
+        return str(self.fullname)
 
 class Agent(models.Model):
     user = models.OneToOneField("User", on_delete=models.CASCADE)    

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>are you sure to delete?</h2>
+
+<form action="{% url 'leads:lead-delete' lead.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">remove</button>
+</form>
+
+{% endblock content %}

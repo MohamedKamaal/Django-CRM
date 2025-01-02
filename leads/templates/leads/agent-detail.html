@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'leads:lead-list' %} ">All leads</a>
+<h2>{{agent.user.username}}</h2>
+<h2>{{agent.image}}</h2>
+<ul>
+    {% for lead in agent.leads.all %}
+    <li><a href="{% url 'leads:lead-detail' lead.pk %}">{{ lead.full_name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
