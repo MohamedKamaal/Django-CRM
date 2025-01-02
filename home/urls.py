@@ -17,9 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import leads 
-from leads.views import home_page_view
+from leads.views import HomePageView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lead', include("leads.urls",namespace="leads")),
-    path('', home_page_view, name="home"),
+    path('lead/', include("leads.urls",namespace="leads")),
+    path('', HomePageView.as_view(), name="home"),
 ]
